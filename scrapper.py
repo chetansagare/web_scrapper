@@ -1,49 +1,58 @@
 
 #import libraries 
+from apscheduler.schedulers.blocking import BlockingScheduler
 import urllib2
 from bs4 import BeautifulSoup
 import csv
 from datetime import datetime
 
+def some_job():
+    #specify the url 
+    tnp_notifications = 'https://tnp.iitd.ac.in/notices/training/notify.php'
+    page = urllib2.urlopen(tnp_notifications)
+    # parse the html using beautiful soup and store in variable `soup`
+    soup=BeautifulSoup(page,'html.parser')
 
-#specify the url 
-tnp_notifications = 'https://tnp.iitd.ac.in/notices/training/notify.php'
-page = urllib2.urlopen(tnp_notifications)
+    central_notifications = soup.find('div', attrs={'id': 1})
+    new_data = central_notifications.text.strip() # strip() is used to remove starting and trailing
 
-# parse the html using beautiful soup and store in variable `soup`
+    placement_schedule = soup.find('div', attrs={'id':2})
+    new_data = new_data+placement_schedule.text
 
-soup=BeautifulSoup(page,'html.parser')
+    company_visit = soup.find('div',attrs={'id':3})
+    new_data = new_data+company_visit.text
 
-central_notifications = soup.find('div', attrs={'id': 1})
-new_data = central_notifications.text.strip() # strip() is used to remove starting and trailing
+    shortlist_list = soup.find('div',attrs={'id':4})
+    new_data = new_data+shortlist_list.text
 
-placement_schedule = soup.find('div', attrs={'id':2})
-new_data = new_data+placement_schedule.text
+    downloads_data = soup.find('div',attrs={'id':5})
+    new_data = new_data+downloads_data.text
 
-company_visit = soup.find('div',attrs={'id':3})
-new_data = new_data+company_visit.text
+    deadlines_data = soup.find('div',attrs={'id':6})
+    new_data = new_data+deadlines_data.text
 
-shortlist_list = soup.find('div',attrs={'id':4})
-new_data = new_data+shortlist_list.text
+    with open('tnp_notifications.txt','r') as file : 
+        old_data = file.read()
 
-downloads_data = soup.find('div',attrs={'id':5})
-new_data = new_data+downloads_data.text
-
-deadlines_data = soup.find('div',attrs={'id':6})
-new_data = new_data+deadlines_data.text
-
-with open('tnp_notifications.txt','r') as file : 
-    old_data = file.read()
+    if new_data == old_data :
+        print ("No Change In Page")
+    else:
+        print ("Change In Page")
+        print (len(new_data))
+        print (len(old_data))
+        #print [i for i in xrange(len(new_data)) if new_data[i] != old_data[i]]
+        with open('tnp_notifications.txt','w+') as file :
+            file.write(new_data)
     
-if new_data == old_data :
-    print "No Change In Page"
-else:
-    print "Change In Page"
-    print len(new_data)
-    print len(old_data)
-    #print [i for i in xrange(len(new_data)) if new_data[i] != old_data[i]]
-    with open('tnp_notifications.txt','w+') as file :
-        file.write(new_data)
+
+
+
+scheduler = BlockingScheduler()
+scheduler.add_job(some_job, 'interval', hours=1)
+scheduler.start()
+
+
+
 
 # open a csv file with append, so old data will not be erased
 #with open('index.csv', 'a') as csv_file:

@@ -6,9 +6,6 @@ Subject
 Comments
 
 
- Impeigo (Job & Intern) 
-EDc in collaboration with T&P; is organizing Job & Inter fair on 7th and 8th April. More than 30 companies would be visiting for campus recruitment. You can see the companies on your portal.
- 
  Instructions for Internship 2018 
 Students need to follow departmental norms for getting the training approved from the DPE committee as per the departmental norms prior to leaving for internships in case they wish to be graded for it. In all cases, for award of DPE units, after completion of the internship, the work must be evaluated by the DPE committee of the student's department 
 (for further clarifications, refer clause 8.6 of Course of Study). 
@@ -40,10 +37,21 @@ Venue and Time
 Comments
 
 
- DeepSight AI Labs 
-2018-04-06
-Venue: TBA, Time: 6:30pm
-Personal Interview for shortlisted candidates
+ Primotech 
+2018-04-11
+Time: 2:30pm 
+Location: H-218, Sector 63, Noida
+Personal Interview for shortlisted candidates. Students need to go to venue for interviews and also take a filled application form which can be downloaded from the Downloads section
+
+ CoSolve 
+2018-04-11
+Time: 5:30pm, Venue: T&P; Office
+Interview for shortlisted candidates
+
+ Superbolt Technologies 
+2018-04-11
+Time: 8:30pm, Venue: T&P; Office
+Interview for shortlisted candidates
  
 
 
@@ -57,10 +65,20 @@ Shortlist
 Comments
 
 
- DeepSight AI Labs 
-2018-04-06
-DeepSight AI Labs Shortlist
+ Primotech 
+2018-04-11
+Primotech Shortlist
 Shortlist for Personal Interviews
+
+ CoSolve 
+2018-04-11
+CoSolve Shortlist
+Shortlist for Interview
+
+ Superbolt Technologies 
+2018-04-11
+Superbolt Technologies Shortlist
+Shortlist for Interviews
  
 
 
@@ -74,6 +92,10 @@ Download Presentation
 Comments
 
 
+ Primotech 
+Primotech
+Application form
+ 
 
 
 Deadlines
